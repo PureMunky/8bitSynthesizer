@@ -1,9 +1,9 @@
-8bitSynthesizer
-===============
+♫ 8bitSynthesizer ♫
+===================
 
 Javascript and Web Audio synthesizer to make 8bit music.
 
-## Notes
+## ♫ Notes
 
 Create Note objects with a frequency and duration.
 
@@ -19,7 +19,7 @@ Examples:
     note.play();                // Play a created note.
     note.play({tone: 'Ab'});    // Override any built in value temporarily.
 
-## Track
+## ♫ Track
 
 Create Track objects that contain Notes played at set intervals.
 
@@ -38,7 +38,7 @@ Examples:
     track.play(2);              // Tempo Change
     track.play('A');            // Key Change
 
-## Sheet
+## ♫ Sheet
 
 Create a Sheet object to put the tracks together.
 
@@ -55,6 +55,6 @@ Examples:
 
     sheet.play();               //Play Sheet
 
-## Interface
+## ♫ Interface
 
 Sheet music inteface with clickable notes and bars.
