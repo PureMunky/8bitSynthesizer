@@ -8,6 +8,7 @@ Javascript and Web Audio synthesizer to make 8bit music.
 Create Note objects with a frequency and duration.
 
 Examples:
+
     var note = Syn.note('A#', 'Quarter');
     var note = Syn.note('A', '100ms');
     var note = Syn.note('440Hz', 'Whole');
