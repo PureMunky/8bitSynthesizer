@@ -58,9 +58,9 @@ test('Note tone normalization', function () {
 });
 
 test('Note duration normalization', function () {
-	equal(Syn.note({duration: 'Sixteenth'}).ms, 83, 'Duration ms');
-	equal(Syn.note({duration: 'Eighth'}).ms, 167, 'Duration ms');
-	equal(Syn.note({duration: 'Quarter'}).ms, 333, 'Duration ms');
-	equal(Syn.note({duration: 'Half'}).ms, 667, 'Duration ms');
-	equal(Syn.note({duration: 'Whole'}).ms, 1333, 'Duration ms');
+	equal(Syn.note({duration: 'Sixteenth'}).ms, 187.5, 'Duration ms');
+	equal(Syn.note({duration: 'Eighth'}).ms, 375, 'Duration ms');
+	equal(Syn.note({duration: 'Quarter'}).ms, 750, 'Duration ms');
+	equal(Syn.note({duration: 'Half'}).ms, 1500, 'Duration ms');
+	equal(Syn.note({duration: 'Whole'}).ms, 3000, 'Duration ms');
 });

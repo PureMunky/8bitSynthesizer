@@ -5,9 +5,10 @@ var Syn = (function () {
 			hz: 440.0,
 			octive: 4,
 			duration: 'Quarter',
-			ms: 333
+			ms: 333,
+			bpm: 80
 		},
-		_note = {
+		_tone = {
 			'A': 10,
 			'A#': 11,
 			'B': 12,
@@ -20,6 +21,13 @@ var Syn = (function () {
 			'F#': 7,
 			'G': 8,
 			'G#': 9
+		},
+		_duration = {
+			'Sixteenth': .25,
+			'Eighth': .5,
+			'Quarter': 1,
+			'Half': 2,
+			'Whole': 4
 		};
 	
 	function _CalcHz(note) {
@@ -27,12 +35,17 @@ var Syn = (function () {
 	}
 	
 	function _CalcHalfSteps(n1, n2) {
-		return (_note[n2.tone] + (n2.octive * 12)) - (_note[n1.tone] + (n1.octive * 12));
+		return (_tone[n2.tone] + (n2.octive * 12)) - (_tone[n1.tone] + (n1.octive * 12));
+	}
+	
+	function _CalcMs(note) {
+		return (1 / (_A4.bpm / 60)) * 1000 * _duration[note.duration];
 	}
 	
 	that.note = function (o) {
 		o.octive = o.octive || 4;
-		o.hz = _CalcHz(o);
+		o.hz = o.hz || _CalcHz(o);
+		o.ms = o.ms || _CalcMs(o);
 		return o;
 	};
 	
