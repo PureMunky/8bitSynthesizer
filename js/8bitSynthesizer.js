@@ -29,6 +29,22 @@ var Syn = (function () {
 			'Half': 2,
 			'Whole': 4
 		};
+		
+	/*
+	var context;
+	if (typeof AudioContext !== "undefined") {
+	    context = new AudioContext();
+	} else if (typeof webkitAudioContext !== "undefined") {
+	    context = new webkitAudioContext();
+	} else {
+	    throw new Error('AudioContext not supported. :(');
+	}
+	
+	var src = context.createBufferSource();
+	src.buffer = context.createBuffer(11, true);
+	
+	src.connect(context.destination);
+	*/
 	
 	function _CalcHz(note) {
 		return Math.pow(2, (_CalcHalfSteps(_A4, note) / 12.0)) * _A4.hz;
@@ -46,6 +62,11 @@ var Syn = (function () {
 		o.octive = o.octive || 4;
 		o.hz = o.hz || _CalcHz(o);
 		o.ms = o.ms || _CalcMs(o);
+		
+		o.play = function () {
+			soundSource.noteOn(context.currentTime);
+			soundSource.noteOff(context.currentTime + o.ms);
+		};
 		return o;
 	};
 	

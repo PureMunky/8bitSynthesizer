@@ -64,3 +64,16 @@ test('Note duration normalization', function () {
 	equal(Syn.note({duration: 'Half'}).ms, 1500, 'Duration ms');
 	equal(Syn.note({duration: 'Whole'}).ms, 3000, 'Duration ms');
 });
+
+module('V 0.3.0');
+
+test('Note play', function () {
+	var note = Syn.note({tone: 'A'});
+	stop(note.ms);
+	note.play();
+	setTimeout(function () {
+			ok(true);
+			start();
+	}, note.ms)
+		
+});
