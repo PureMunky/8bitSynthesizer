@@ -38,7 +38,7 @@ test('Sheet Create', function() {
 
 module('V 0.2.0');
 
-test('Note normalized', function () {	
+test('Note tone normalization', function () {	
 	equal(Syn.note({tone: 'A', octive: 3}).hz.toFixed(2), 220.00, 'A Tone Translated');
 	equal(Syn.note({tone: 'A#', octive: 3}).hz.toFixed(2), 233.08, 'A# Tone Translated');
 	equal(Syn.note({tone: 'B', octive: 3}).hz.toFixed(2), 246.94, 'B Tone Translated');
@@ -55,7 +55,9 @@ test('Note normalized', function () {
 	equal(Syn.note({tone: 'A#'}).hz.toFixed(2), 466.16, 'A# Tone Translated');
 	equal(Syn.note({tone: 'B'}).hz.toFixed(2), 493.88, 'B Tone Translated');
 	equal(Syn.note({tone: 'C', octive: 5}).hz.toFixed(2), 523.25, 'C Tone Translated');
-	
+});
+
+test('Note duration normalization', function () {
 	equal(Syn.note({duration: 'Sixteenth'}).ms, 83, 'Duration ms');
 	equal(Syn.note({duration: 'Eighth'}).ms, 167, 'Duration ms');
 	equal(Syn.note({duration: 'Quarter'}).ms, 333, 'Duration ms');
